@@ -1,19 +1,65 @@
-const User = require('../models/User')
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const User = require('../models/User');
+const keys = require('../config/keys');
 
-module.exports.login = (req, res) => {
-    res.status(200).json({
-        login: {
-            email: req.body.email,
-            password: req.body.password
+module.exports.login = async (req, res) => {
+    const candidate = await User.findOne({email: req.body.email});
+
+    if (candidate) {
+        // Пользователь существует, проверка пароля
+        const passwordResult = bcrypt.compareSync(req.body.password, candidate.password);
+
+        if (passwordResult) {
+            // Генерация токена, пароли совпали
+            const token = jwt.sign({
+                email: candidate.email,
+                userId: candidate._id
+            }, keys.jwt, {expiresIn: 60 * 60}); // 60 * 60 = 1h
+
+            res.status(200).json({
+                token: `Bearer ${token}`
+            });
+        } else {
+            res.status(401).json({
+                massega: 'Пароли не совпали!'
+            })
         }
-    })
+    } else {
+        // Пользователя нет, ошибка
+
+        res.status(404).json({
+            massega: 'Пользователь с таким email не найден!'
+        })
+
+    }
 }
 
-module.exports.register = (req, res) => {
-    const user = new User({
-        email: req.body.email,
-        password: req.body.password
-    })
+module.exports.register = async (req, res) => {
+    // email password
+    const candidate = await User.findOne({email: req.body.email});
 
-    user.save().then(() => console.log('User created')).catch(err => console.log(err))
+    if (candidate) {
+        // Пользователь существует
+        res.status(409).json({
+            message: 'Такой email уже занят! Попробуйте другой.'
+        })
+    } else {
+        // Нужно создать ползователя
+        const salt = bcrypt.genSaltSync(10);
+        const password = req.body.password;
+        const user = new User({
+            email: req.body.email,
+            password: bcrypt.hashSync(password, salt)
+        });
+        
+        try {
+            await user.save()
+            res.status(201).json(user);
+        } catch (e) {
+            // Обработать ошибку
+            console.log('error')
+        }
+        
+    }
 }
