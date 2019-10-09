@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const keys = require('../config/keys');
+const errorHandler = require('../util/errorHandlers')
 
 module.exports.login = async (req, res) => {
     const candidate = await User.findOne({email: req.body.email});
@@ -22,14 +23,14 @@ module.exports.login = async (req, res) => {
             });
         } else {
             res.status(401).json({
-                massega: 'Пароли не совпали!'
+                message: 'Пароли не совпали!'
             })
         }
     } else {
         // Пользователя нет, ошибка
 
         res.status(404).json({
-            massega: 'Пользователь с таким email не найден!'
+            message: 'Пользователь с таким email не найден!'
         })
 
     }
@@ -56,9 +57,9 @@ module.exports.register = async (req, res) => {
         try {
             await user.save()
             res.status(201).json(user);
-        } catch (e) {
+        } catch (error) {
             // Обработать ошибку
-            console.log('error')
+            errorHandler(res, error)
         }
         
     }
