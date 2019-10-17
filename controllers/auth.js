@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const keys = require('../config/keys');
-const errorHandler = require('../util/errorHandlers')
+const errorHandler = require('../util/errorHandlers');
 
 module.exports.login = async (req, res) => {
     const candidate = await User.findOne({email: req.body.email});
@@ -23,18 +23,18 @@ module.exports.login = async (req, res) => {
             });
         } else {
             res.status(401).json({
-                message: 'Пароли не совпали!'
-            })
+                message: 'Не верный пароль. Попробуйте снова!'
+            });
         }
     } else {
         // Пользователя нет, ошибка
 
         res.status(404).json({
             message: 'Пользователь с таким email не найден!'
-        })
+        });
 
     }
-}
+};
 
 module.exports.register = async (req, res) => {
     // email password
@@ -63,4 +63,4 @@ module.exports.register = async (req, res) => {
         }
         
     }
-}
+};
