@@ -9,7 +9,7 @@ module.exports.getAll = async (req, res) => {
     } catch (error) {
         errorHandler(res, error);
     }
-}
+};
 
 module.exports.getById = async (req, res) => {
     try {
@@ -18,7 +18,7 @@ module.exports.getById = async (req, res) => {
     } catch (error) {
         errorHandler(res, error);
     }
-}
+};
 
 module.exports.remove = async (req, res) => {
     try {
@@ -30,7 +30,7 @@ module.exports.remove = async (req, res) => {
     } catch (error) {
         errorHandler(res, error)
     }
-}
+};
 
 module.exports.create = async (req, res) => {
 
@@ -38,20 +38,20 @@ module.exports.create = async (req, res) => {
         name: req.body.name,
         user: req.user.id,
         imageSrc: req.file ? req.file.path : ''
-    })
+    });
 
     try {
-        await category.save()
+        await category.save();
         res.status(201).json(category)
     } catch (error) {
         errorHandler(res, error);
     }
-}
+};
 
 module.exports.update = async (req, res) => {
     const updated = {
         name: req.body.name
-    }
+    };
 
     if (req.file) {
         updated.imageSrc = req.body.path
@@ -62,9 +62,9 @@ module.exports.update = async (req, res) => {
             {_id: req.params.id},
             {$set: updated},
             {new: true}
-        )
+        );
         res.status(200).json(category)
     } catch (error) {
         errorHandler(res, error)
     }
-}
+};

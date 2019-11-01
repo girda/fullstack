@@ -15,11 +15,12 @@ const app = express();
 mongoose.connect(keys.MONGO_URI, {
     useCreateIndex: true,
     useUnifiedTopology: true, 
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useFindAndModify: false
 })
     .then(() => console.log('MongoDB connected!'))
     .catch(error => console.log(error));
-    
+
 app.use(passport.initialize());
 require('./middleware/passport')(passport);
 app.use(morgan('dev'));
