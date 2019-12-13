@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {PositionsService} from "../../../shared/services/positions.service";
+import {Position} from "../../../shared/interfaces";
 
 @Component({
   selector: 'app-positions-form',
@@ -6,13 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./positions-form.component.css']
 })
 export class PositionsFormComponent implements OnInit {
+  @Input('categoryId') categoryId: string;
+  positions: Position[] = [];
 
-
-
-  constructor() { }
+  constructor(private positionService: PositionsService) { }
 
   ngOnInit() {
-
+    this.positionService.fetch(this.categoryId).subscribe(positions => {
+      this.positions = positions;
+    })
   }
 
 }
