@@ -19,7 +19,7 @@ module.exports.create = async (req, res) => {
             cost: req.body.cost,
             category: req.body.category,
             user: req.user.id
-        }).save()
+        }).save();
 
         res.status(201).json(position)
     } catch (error) {

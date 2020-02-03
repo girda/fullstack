@@ -23,4 +23,4 @@ const positionSchema = new Schema({
     }
 })
 
-module.exports = mongoose.model('positions', positionSchema)
+module.exports = mongoose.model('positions', positionSchema);
