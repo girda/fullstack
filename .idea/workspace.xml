@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5fad34c-70a4-42a5-a2de-8d2781d93df4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/app/order-page/order.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/app/shared/services/orders.services.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/history-page/history-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/history-page/history-page.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/history-page/history-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/history-page/history-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/order-page/order-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/order-page/order-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/order-page/order-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/order-page/order-page.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/shared/classes/material.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/classes/material.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/interfaces.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/app/shared/classes/token.interseptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/classes/token-interceptor.service.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +33,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nicmas-new" />
     <property name="settings.editor.selected.configurable" value="ics" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/client/node_modules/typescript/lib" />
   </component>
@@ -89,7 +83,11 @@
       <workItem from="1580889362734" duration="1554000" />
       <workItem from="1580894482899" duration="20455000" />
       <workItem from="1581431324749" duration="4374000" />
-      <workItem from="1581669358733" duration="774000" />
+      <workItem from="1581669358733" duration="8731000" />
+      <workItem from="1582899423145" duration="1244000" />
+      <workItem from="1583146966593" duration="599000" />
+      <workItem from="1583222924217" duration="2635000" />
+      <workItem from="1592298330038" duration="11942000" />
     </task>
     <servers />
   </component>

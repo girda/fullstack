@@ -1,7 +1,7 @@
 import {ElementRef} from "@angular/core";
 
 declare var M;
-export  interface MaterialInstance {
+export interface MaterialInstance {
   open?(): void
   close?(): void
   destroy?(): void

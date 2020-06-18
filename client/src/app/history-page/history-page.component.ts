@@ -15,10 +15,12 @@ export class HistoryPageComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.tooltip);
   }
 
   ngOnDestroy() {
-    this.tooltip.destroy()
+    console.log(this.tooltip);
+    // this.tooltip.destroy()
   }
 
   ngAfterViewInit() {

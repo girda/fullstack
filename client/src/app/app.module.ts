@@ -9,7 +9,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { AuthLayoutComponent } from './shared/layouts/auth-layout/auth-layout.component';
 import { SiteLayoutComponent } from './shared/layouts/site-layout/site-layout.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
-import { TokenInterseptor } from "./shared/classes/token.interseptor";
+import { TokenInterceptor } from "./shared/classes/token-interceptor.service";
 import { OverviewPageComponent } from './overview-page/overview-page.component';
 import { AnalyticsPageComponent } from './analytics-page/analytics-page.component';
 import { HistoryPageComponent } from './history-page/history-page.component';
@@ -54,7 +54,7 @@ import { HistoryFilterComponent } from './history-page/history-filter/history-fi
     {
       provide: HTTP_INTERCEPTORS,
       multi: true,
-      useClass: TokenInterseptor
+      useClass: TokenInterceptor
     }
   ],
   bootstrap: [AppComponent]
