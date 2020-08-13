@@ -3,8 +3,9 @@ import {NavigationEnd, Router} from "@angular/router";
 import {MaterialInstance, MaterialService} from "../shared/classes/material.service";
 import {OrderService} from "./order.service";
 import {Order, OrderPosition} from "../shared/interfaces";
-import {OrdersServices} from "../shared/services/orders.services";
+import {OrdersService} from "../shared/services/orders.service";
 import {Subscription} from "rxjs";
+import {log} from "util";
 
 @Component({
   selector: 'app-order-page',
@@ -22,7 +23,7 @@ export class OrderPageComponent implements OnInit, OnDestroy, AfterViewInit {
 
   constructor(private router: Router,
               private order: OrderService,
-              private ordersService: OrdersServices) { }
+              private ordersService: OrdersService) { }
 
   ngOnInit() {
     this.isRoot = this.router.url === '/order';
@@ -31,6 +32,8 @@ export class OrderPageComponent implements OnInit, OnDestroy, AfterViewInit {
         this.isRoot = this.router.url === '/order';
       }
     })
+
+    console.log(this.order.list)
   }
 
   ngOnDestroy() {
@@ -41,20 +44,20 @@ export class OrderPageComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.modal = MaterialService.initModal(this.modalRef)
+    this.modal = MaterialService.initModal(this.modalRef);
   }
 
   removePosition(orderPosition: OrderPosition) {
     this.order.remove(orderPosition);
-    MaterialService.toast(`Позиция ${orderPosition.name} удалена.`)
+    MaterialService.toast(`Позиция ${orderPosition.name} удалена.`);
   }
 
   openModal() {
-    this.modal.open()
+    this.modal.open();
   }
 
   cancelModal() {
-    this.modal.close()
+    this.modal.close();
   }
 
   submitModal() {
@@ -68,7 +71,7 @@ export class OrderPageComponent implements OnInit, OnDestroy, AfterViewInit {
 
     this.oSub = this.ordersService.create(order).subscribe(
       newOrder => {
-        MaterialService.toast(`Заказ №${newOrder.order} был добавлен.`)
+        MaterialService.toast(`Заказ №${newOrder.order} был добавлен.`);
         this.order.clear();
       },
       error => MaterialService.toast(error.error.message),

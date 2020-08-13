@@ -43,7 +43,7 @@ module.exports.create = async (req, res) => {
     try {
         const lastOrder = await Order
             .findOne({user: req.user.id})
-            .sort({data: -1})
+            .sort({date: -1});
 
         const maxOrder = lastOrder ? lastOrder.order : 0;
 
@@ -51,7 +51,7 @@ module.exports.create = async (req, res) => {
             list: req.body.list,
             user: req.user.id,
             order: maxOrder + 1
-        }).save()
+        }).save();
 
         res.status(201).json(order)
     } catch (error) {

@@ -4,7 +4,8 @@
     (click)="isFilterVisible = !isFilterVisible"
     class="btn btn-small"
     [ngClass]="{
-      'active': isFilterVisible
+      active: isFilterVisible,
+      red: isFiltered()
     }"
     data-position="left"
     data-tooltip="Открыть фильтр"
@@ -14,10 +15,35 @@
   </button>
 </div>
 
-<app-history-filter *ngIf="isFilterVisible"></app-history-filter>
+<app-history-filter
+  (onFilter)="applyFilter($event)"
+  *ngIf="isFilterVisible"
+></app-history-filter>
 
-<app-history-list></app-history-list>
+<div *ngIf="!reloading; else reloadingBlock">
+  <div *ngIf="orders.length > 0; else empty">
+    <app-history-list [orders]="orders"></app-history-list>
 
-<div class="center mb2">
-  <button class="btn waves-effect grey darken-1 btn-small">Загрузить еще</button>
+    <div
+      *ngIf="!noMoreOrders"
+      class="center mb2"
+    >
+      <button
+        (click)="loadMore()"
+        class="btn waves-effect grey darken-1 btn-small"
+        *ngIf="!loading; else loader"
+      >
+        Загрузить еще
+      </button>
+      <ng-template #loader>
+        <app-loader></app-loader>
+      </ng-template>
+    </div>
+  </div>
+  <ng-template #empty>
+    <div class="center">Заказов пока нет.</div>
+  </ng-template>
 </div>
+<ng-template #reloadingBlock>
+  <app-loader></app-loader>
+</ng-template>
