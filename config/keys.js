@@ -1,4 +1,5 @@
-module.exports = {
-    MONGO_URI: 'mongodb://localhost:27017/fullstack',
-    jwt: 'dev-jwt'
+if (process.env.NODE_ENV === 'production') {
+    module.exports = require('./keys.prod')
+} else {
+    module.exports = require('./keys.dev')
 }

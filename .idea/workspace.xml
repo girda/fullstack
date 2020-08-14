@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5fad34c-70a4-42a5-a2de-8d2781d93df4" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/keys.dev.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/keys.prod.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/analytics-page/analytics-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/analytics-page/analytics-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/analytics-page/analytics-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/analytics-page/analytics-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/overview-page/overview-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/overview-page/overview-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/interfaces.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/shared/services/analytics.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/shared/services/analytics.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/analytics.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/analytics.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/keys.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/keys.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,8 +34,11 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nicmas_back" />
+    <property name="javascript.nodejs.core.library.configured.version" value="10.16.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="ics" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/client/node_modules/typescript/lib" />
   </component>
@@ -97,7 +98,8 @@
       <workItem from="1596630317479" duration="21609000" />
       <workItem from="1597302648953" duration="536000" />
       <workItem from="1597304428880" duration="19278000" />
-      <workItem from="1597394721759" duration="4397000" />
+      <workItem from="1597394721759" duration="6372000" />
+      <workItem from="1597413916592" duration="333000" />
     </task>
     <servers />
   </component>
