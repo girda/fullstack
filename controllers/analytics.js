@@ -58,7 +58,10 @@ module.exports.overview = async (req, res) => {
         const compareGain = (yesterdayGain - gainPerDay).toFixed(2);
         // сравнение заказов
         const compareNumber = (yesterdayOrdersNumber - ordersPerDay).toFixed(2);
-        console.log()
+        console.log('выручка за вчера' + yesterdayGain);
+        console.log('выручка в день' + gainPerDay);
+        console.log('кол-во заказов вчера' + yesterdayOrdersNumber);
+        console.log('заказов в день' + ordersPerDay);
         res.status(200).json({
             gain: {
                 percent: Math.abs(+gainPercent),
@@ -79,10 +82,23 @@ module.exports.overview = async (req, res) => {
     }
 };
 
-module.exports.analytics = (req, res) => {
-    
-};
+module.exports.analytics = async (req, res) => {
+    try {
+        const allOrders = await Order.find({user: req.user.id}).sort({date: 1});
+        const ordersMap = getOrdersMap(allOrders);
 
-// function getOrdersMap() {
-//
-// }
+        const averageCheck = +(calculatePrice(allOrders) / Object.keys(ordersMap).length).toFixed(2);
+
+        const chart = Object.keys(ordersMap).map(label => {
+            const gain = calculatePrice(ordersMap[label]);
+            const order = ordersMap[label].length;
+            return {label, order, gain}
+        });
+
+        res.status(200).json({
+            averageCheck, chart
+        })
+    } catch (e) {
+        errorHandlers(res, e)
+    }
+};
