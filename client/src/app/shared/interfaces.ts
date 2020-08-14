@@ -38,8 +38,20 @@ export interface OrderPosition {
   _id?: string
 }
 
-export  interface Filter {
+export interface Filter {
   start?: Date,
   end?: Date,
   order?: number
+}
+
+export interface OverviewPage {
+  orders?: OverviewPageItem,
+  gain?: OverviewPageItem
+}
+
+export interface OverviewPageItem {
+  percent: number,
+  compare: number,
+  yesterday: number,
+  isHigher: boolean
 }
